@@ -19,9 +19,16 @@ document.addEventListener("DOMContentLoaded", function(e) {
   }
 
   function playerMoves() {
-    if (currentPlayer === 1) {
-      console.log("player one puts X");
-      this.innerHTML = "X";
+    if (this.innerHTML === '') {
+      if (currentPlayer === 1) {
+        console.log("player one puts X");
+        this.innerHTML = "X";
+        currentPlayer = 2;
+      } else if (currentPlayer === 2) {
+        console.log("player two puts O");
+        this.innerHTML = "O";
+        currentPlayer = 1;
+      }
     }
   }
 

@@ -14,3 +14,7 @@
   align-items: center;
   font-size: 60px;
 }
+
+#status {
+  text-transform: uppercase;
+}
