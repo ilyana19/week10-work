@@ -1,0 +1,16 @@
+.board {
+  width: 500px;
+  height: 500px;
+  border: 1px solid #ff9e6e;
+  display: grid;
+  grid-template: repeat(3, 1fr) / repeat(3, 1fr);
+}
+
+.tile {
+  border: 1px solid #ff9e6e;
+  background: #eee;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 60px;
+}
