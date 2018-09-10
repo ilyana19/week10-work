@@ -58,6 +58,9 @@ document.addEventListener("DOMContentLoaded", function(e) {
 
       if (tile1 === tile2 && tile2 === tile3 && tile3 !== '') {
         status.innerHTML = "Player " + player + " wins!";
+        tiles.forEach(function(tile) {
+          tile.removeEventListener("click", playerMoves);
+        });
       } else if (moves === 9 && tile1 !== tile2 && tile2 !== tile3 && tile3 !== ''){
         status.innerHTML = "It's a draw!";
       }
