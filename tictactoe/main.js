@@ -1,6 +1,8 @@
 document.addEventListener("DOMContentLoaded", function(e) {
   var mainContainer = document.querySelector("main");
   var currentPlayer = 1;
+  var moves = 0;
+  var player = 1; // really just there for status
   var status = document.getElementById("status");
   status.innerHTML = "Player " + currentPlayer + "'s turn"; // set default
 
@@ -33,11 +35,14 @@ document.addEventListener("DOMContentLoaded", function(e) {
     if (this.innerHTML === '') {
       if (currentPlayer === 1) {
         this.innerHTML = "X";
+        player = 1;
         currentPlayer = 2;
       } else if (currentPlayer === 2) {
         this.innerHTML = "O"
+        player = 2;
         currentPlayer = 1;
       }
+      moves++;
     }
 
     status.innerHTML = "Player " + currentPlayer + "'s turn";
@@ -51,8 +56,10 @@ document.addEventListener("DOMContentLoaded", function(e) {
       var tile2 = tiles[winCases[i][1]-1].innerHTML;
       var tile3 = tiles[winCases[i][2]-1].innerHTML;
 
-      if (tile1 === tile2 && tile2 === tile3 && tile3 != '') {
-        console.log("winner");
+      if (tile1 === tile2 && tile2 === tile3 && tile3 !== '') {
+        status.innerHTML = "Player " + player + " wins!";
+      } else if (moves === 9 && tile1 !== tile2 && tile2 !== tile3 && tile3 !== ''){
+        status.innerHTML = "It's a draw!";
       }
     }
   }
