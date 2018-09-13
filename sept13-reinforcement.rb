@@ -15,11 +15,12 @@ class Trip
   end
 
   def travel_log
-    puts "Began Trip."
-    @destinations.each_cons(3) do |destination|
-      p destination
+    p "Began Trip."
+    @destinations.each_cons(2) do |destination|
+      # p destination
+      p "Travelled from #{destination.first} to #{destination.last}."
     end
-    puts "Ended Trip."
+    p "Ended Trip."
   end
 end
 
@@ -38,4 +39,4 @@ trip.add_location(quebec_city)
 trip.add_location(halifax)
 trip.add_location(st_johns)
 
-p trip.travel_log
+trip.travel_log
